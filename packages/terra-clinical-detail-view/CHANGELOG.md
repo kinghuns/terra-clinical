@@ -3,6 +3,12 @@ ChangeLog
 
 Unreleased
 ----------
+### Changed
+* Updated scss filenames with .module.scss extension
+
+### Added
+* Additional missing theming variables
+
 
 3.8.0 - (September 6, 2019)
 ----------

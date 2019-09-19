@@ -36,8 +36,8 @@
 
   .subtitle {
     color: var(--terra-clinical-detail-view-subtitle-color, #75767d);
-    font-size: 1.1428571429rem;
-    line-height: 1.4285714286;
+    font-size: var(--terra-clinical-detail-view-subtitle-font-size, 1.14285rem);
+    line-height: var(--terra-clinical-detail-view-subtitle-line-height, 1.42857);
     word-wrap: break-word;
 
     ~ .subtitle {
@@ -47,8 +47,8 @@
 
   .accessory {
     color: var(--terra-clinical-detail-view-accessory-color, #262424);
-    font-size: 1rem;
-    margin-top: 1.2857142857rem;
+    font-size: var(--terra-clinical-detail-view-accessory-font-size, 1rem);
+    margin-top: var(--terra-clinical-detail-view-accessory-margin-top, 1.28571rem);
   }
 
   .titles-smaller {
@@ -72,8 +72,8 @@
 
   .footer-text {
     color: var(--terra-clinical-detail-view-footer-text-color, #75767d);
-    font-size: 0.8571428571rem;
-    line-height: 1.4285714286;
+    font-size: var(--terra-clinical-detail-view-footer-text-font-size, 0.85714rem);
+    line-height: var(--terra-clinical-detail-view-footer-text-line-height, 1.42857);
     text-align: center;
   }
 
@@ -82,6 +82,6 @@
     border-style: solid;
     border-width: 1px 0 0;
     margin: 0;
-    margin-bottom: 0.7142857143rem;
+    margin-bottom: var(--terra-clinical-detail-view-divider-margin-bottom, 0.71428rem);
   }
 }

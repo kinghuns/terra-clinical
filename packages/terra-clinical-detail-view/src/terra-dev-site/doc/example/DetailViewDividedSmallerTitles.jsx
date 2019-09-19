@@ -5,9 +5,9 @@ import IconCritical from 'terra-icon/lib/icon/IconCritical';
 import IconPharmacyReview from 'terra-icon/lib/icon/IconPharmacyReview';
 import IconPharmacyReject from 'terra-icon/lib/icon/IconPharmacyReject';
 import IconGlasses from 'terra-icon/lib/icon/IconGlasses';
-import classNames from 'classnames/bind';
 import DetailView from 'terra-clinical-detail-view';
-import styles from './DetailViewDivided.module.scss';
+import classNames from 'classnames/bind';
+import styles from './Examples.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -25,7 +25,7 @@ const detail2item4 = (<LabelValueView label="Admin Notes" textValue="Try med for
 
 
 const DetailViewDivided = () => (
-  <div className={cx('detail-view-divided')}>
+  <div className={cx('example-container-border')}>
     <DetailView
       title="Multiple Ingredients"
       secondaryTitles={['M. V. I. Adult 10 mL = 10 mL', 'Sodium bicarbonate 8.4% 50 mL', 'Dextrose 5% in Water 1000 mL']}

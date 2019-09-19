@@ -2,7 +2,7 @@ import React from 'react';
 import LabelValueView from 'terra-clinical-label-value-view';
 import DetailView from 'terra-clinical-detail-view';
 import classNames from 'classnames/bind';
-import styles from './DetailViewDivided.module.scss';
+import styles from './Examples.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -18,7 +18,7 @@ const detail2item3 = (<LabelValueView label="Comments" textValue="Lorem ipsum do
 
 
 const DetailViewDivided = () => (
-  <div className={cx('detail-view-divided')}>
+  <div className={cx('example-container-border')}>
     <DetailView
       title="Mother"
       subtitles={['Martha (58 years)', '[second line for subtitles]']}
