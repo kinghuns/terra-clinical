@@ -1,4 +1,9 @@
 :local {
+  .list-section {
+    margin-left: var(--terra-clinical-detail-view-list-section-margin-left, 1.42857rem);
+    margin-right: var(--terra-clinical-detail-view-list-section-margin-right, 1.42857rem);
+  }
+
   .title {
     font-size: 1.1428571429rem;
     line-height: 1.4285714286;

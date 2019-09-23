@@ -1,6 +1,7 @@
 :local {
   .detail-view {
-    padding: 1.4285714286rem;
+    margin: 0;
+    padding: 0;
 
     > * {
       margin-bottom: 0.7142857143rem;
@@ -9,7 +10,10 @@
 
   .titles-section {
     line-height: 1.2;
-    margin-bottom: 0.7142857143rem;
+    margin-bottom: var(--terra-clinical-detail-view-titles-section-margin-bottom, 0.71428rem);
+    margin-left: var(--terra-clinical-detail-view-titles-section-margin-left, 1.42857rem);
+    margin-right: var(--terra-clinical-detail-view-titles-section-margin-right, 1.42857rem);
+    margin-top: var(--terra-clinical-detail-view-titles-section-margin-top, 1.42857rem);
 
     &:first-child {
       margin-bottom: 1.4285714286rem;
@@ -74,6 +78,7 @@
     color: var(--terra-clinical-detail-view-footer-text-color, #75767d);
     font-size: var(--terra-clinical-detail-view-footer-text-font-size, 0.85714rem);
     line-height: var(--terra-clinical-detail-view-footer-text-line-height, 1.42857);
+    margin-bottom: var(--terra-clinical-detail-view-footer-text-margin-bottom, 1.42857rem);
     text-align: center;
   }
 
