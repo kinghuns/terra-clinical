@@ -14,10 +14,6 @@ const bloodpressureResultValue = {
       unit: 'mm Hg',
     },
     interpretation: 'CRITICAL',
-    isModified: true,
-    hasComment: true,
-    conceptDisplay: 'Systolic / Diastolic Blood Pressure',
-    datetimeDisplay: 'Nov 23, 2019 13:31:31',
   },
   diastolic: {
     eventId: '111.2',
@@ -26,15 +22,17 @@ const bloodpressureResultValue = {
       unit: 'mmHg',
     },
     interpretation: 'LOW',
-    isModified: true,
-    hasComment: true,
-    conceptDisplay: 'Systolic / Diastolic Blood Pressure',
-    datetimeDisplay: 'Nov 23, 2019 13:31:31',
   },
 };
 
 export default () => (
   <div className={cx('clinical-result-fontsize-21')}>
-    <ClinicalResultBloodPressure resultData={bloodpressureResultValue} />
+    <ClinicalResultBloodPressure
+      resultData={bloodpressureResultValue}
+      isModified
+      hasComment
+      conceptDisplay="Systolic / Diastolic Blood Pressure"
+      datetimeDisplay="Nov 23, 2019 13:31:31"
+    />
   </div>
 );

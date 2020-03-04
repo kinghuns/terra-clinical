@@ -6,7 +6,7 @@ import IconHigh from 'terra-icon/lib/icon/IconHigh';
 import IconLow from 'terra-icon/lib/icon/IconLow';
 import IconAbnormal from 'terra-icon/lib/icon/IconAbnormal';
 import interpretationPropType from '../../proptypes/interpretationPropTypes';
-import { valueQuantityPropShape, valueStringPropShape, valueNullPropShape } from '../../proptypes/valuePropTypes';
+import valueQuantityPropShape from '../../proptypes/valuePropTypes';
 import ResultError from '../other/_ResultError';
 import NoData from '../other/_KnownNoData';
 import styles from './Observation.module.scss';
@@ -15,19 +15,16 @@ const cx = classNames.bind(styles);
 
 const propTypes = {
   /**
-   *  Event ID
+   *  Event ID for result
    */
   eventId: PropTypes.string,
   /**
    *  Value and optional Unit of Measure for the Observation Result
    */
-  result: PropTypes.oneOfType([
-    valueQuantityPropShape,
-    valueStringPropShape,
-    valueNullPropShape,
-  ]),
+  result: valueQuantityPropShape,
   /**
-   * Interpretation of the Result, indicates Criticality
+   * Enum for possible Result Interpretation values (also called `Clinical Severity` and `Normalcy`).
+   * One of `'CRITICAL'`, `'EXTREMEHIGH'`, `'EXTREMELOW'`, `'PANICHIGH'`, `'PANICLOW'`, `'VABNORMAL'`, `'POSITIVE'`, `'ABNORMAL'`, `'HIGH'`, `'LOW'`, `'NORMAL'`, `'NEUTRAL'`.
    */
   interpretation: interpretationPropType,
   /**
@@ -95,7 +92,10 @@ const Observation = (props) => {
 
   const observationDisplay = () => {
     let valueDisplayElements;
-    if (isValidValue) {
+
+    if (result.value === null) {
+      valueDisplayElements = (<NoData />);
+    } else if (isValidValue) {
       valueDisplayElements = (
         <React.Fragment>
           <span
@@ -108,8 +108,6 @@ const Observation = (props) => {
           {result.unit ? (<span className={unitClassNames}>{result.unit}</span>) : null}
         </React.Fragment>
       );
-    } else if (result.value === null) {
-      valueDisplayElements = (<NoData />);
     } else {
       valueDisplayElements = (<ResultError />);
     }

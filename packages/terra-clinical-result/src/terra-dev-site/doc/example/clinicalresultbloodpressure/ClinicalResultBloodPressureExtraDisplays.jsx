@@ -9,8 +9,6 @@ const bloodpressureResultValue = {
       value: '120',
       unit: 'mmHg',
     },
-    conceptDisplay: 'Blood Pressure Systolic',
-    datetimeDisplay: 'Nov 23, 2019 13:31:31',
   },
   diastolic: {
     eventId: '111.2',
@@ -18,9 +16,13 @@ const bloodpressureResultValue = {
       value: '80',
       unit: 'mmHg',
     },
-    conceptDisplay: 'Blood Pressure Diastolic',
-    datetimeDisplay: 'Nov 23, 2019 13:31:44',
   },
 };
 
-export default () => <ClinicalResultBloodPressure resultData={bloodpressureResultValue} />;
+export default () => (
+  <ClinicalResultBloodPressure
+    resultData={bloodpressureResultValue}
+    conceptDisplay="Blood Pressure Systolic / Blood Pressure Diastolic"
+    datetimeDisplay="Nov 23, 2019 13:31:31 / Nov 23, 2019 13:31:44"
+  />
+);

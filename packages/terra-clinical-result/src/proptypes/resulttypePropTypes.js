@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types';
 
+/**
+ * Enum for possible Result Types.
+ */
 const resultTypePropType = PropTypes.oneOf([
   'ALPHA',
   'MULTIALPHA',

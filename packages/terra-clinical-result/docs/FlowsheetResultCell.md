@@ -27,17 +27,62 @@ Currently the Flowsheet expects an array of one or more results - and if there a
 
 
 ```jsx
+const propTypes = {
   /**
    *  A set of clinical results.                                                          .
    */
   resultDataSet: PropTypes.arrayOf(PropTypes.shape({
     /**
+     *  A single clinical result or blood pressure result id.
+     */
+    id: PropTypes.string,
+    /**
      *  A single clinical result or blood pressure result.
      */
     resultData: observationPropShape,
   })),
-```
-
+  /**
+   * Visually hides the unit of measure when presented in a series of side-by-side columns of the same unit.
+   */
+  hideUnit: PropTypes.bool,
+  /**
+   *  Display to show the full Result Name/Label Concept, e.g. `'Temperature Oral'`.
+   */
+  conceptDisplay: PropTypes.string,
+  /**
+   *  Display to show an appropriate clinically relevant documented datetime.
+   */
+  datetimeDisplay: PropTypes.string,
+  /**
+   * Whether or not the text should be truncated in display. Restricts clinical result details each to one line.
+   */
+  isTruncated: PropTypes.bool,
+  /**
+   *  If the Result value has an appended comment.
+   */
+  isUnverified: PropTypes.bool,
+  /**
+   *  If the Result value has not been authenticated and committed to patient chart.
+   */
+  isModified: PropTypes.bool,
+  /**
+   *  If the Result value has been modified from it's original value for the same clinically documented event & datetime.
+   */
+  hasComment: PropTypes.bool,
+  /**
+   * Override that shows an Error display. Used when there is a known error or problem when retrieving or assembling the clinical result data.
+   */
+  hasResultError: PropTypes.bool,
+  /**
+   * Override that shows a known "No Data" display. Used when there is known to be no value for a given clinical result concept at a specific datetime.
+   */
+  hasResultNoData: PropTypes.bool,
+  /**
+   * The padding styling to apply to the Time Column Header Cell.
+   * One of `'compact'`, `'standard'`, `'none'`.
+   */
+  paddingStyle: PropTypes.oneOf(['compact', 'standard', 'none']),
+  ```
 
 An example of a single clinical result value:
 ```jsx
@@ -53,20 +98,19 @@ const singleResultValue = [
     },
     interpretation: 'CRITICAL',
     type: 'NUMERIC',
-    performedDateTime: '2019-11-23T13:31:31-06:00',
-    updateDateTime: '2019-11-23T13:31:31-06:00',
-    isModified: true,
-    hasComment: true,
-    isUnverified: true,
-    conceptDisplay: 'Temperature Oral',
-    datetimeDisplay: 'Nov 23, 2019 13:31:31',
   },
 ];
 
-export default () => <FlowsheetResultCell resultDataSet={singleResultValue} />;
-
+export default () => (
+  <FlowsheetResultCell
+    resultDataSet={singleResultValue}
+    hideUnit
+    isModified
+    hasComment
+    isUnverified
+  />
+);
 ```
-
 
 An example of multiple clinical blood pressure result values:
 ```jsx
@@ -87,11 +131,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'HIGH',
-      performedDateTime: '2020-01-01T10:10:00-06:00',
-      updateDateTime: '2020-01-01T10:10:00-06:00',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '01/01/2020 10:10:00',
     },
     diastolic: {
       eventId: '1577895000-1.2',
@@ -100,11 +139,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'LOW',
-      performedDateTime: '2020-01-01T10:10:00-06:00',
-      updateDateTime: '2020-01-01T10:10:00-06:00',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '01/01/2020 10:10:00',
     },
   },
   {
@@ -116,11 +150,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'CRITICAL',
-      performedDateTime: '2020-01-01T10:10:00-06:00',
-      updateDateTime: '2020-01-01T10:10:00-06:00',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '01/01/2020 10:10:00',
     },
     diastolic: {
       eventId: '1577895000-2.2',
@@ -128,11 +157,6 @@ const multipleResultBPValues = [
         value: '77',
         unit: 'mmHg',
       },
-      performedDateTime: '2020-01-01T10:10:00-06:00',
-      updateDateTime: '2020-01-01T10:10:00-06:00',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '01/01/2020 10:10:00',
     },
   },
   {
@@ -144,11 +168,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'CRITICAL',
-      performedDateTime: '2020-01-01T10:10:00-06:00',
-      updateDateTime: '2020-01-01T10:10:00-06:00',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '01/01/2020 10:10:00',
     },
     diastolic: {
       eventId: '1577895000-3.2',
@@ -156,15 +175,16 @@ const multipleResultBPValues = [
         value: '77',
         unit: 'mmHg',
       },
-      performedDateTime: '2020-01-01T10:10:00-06:00',
-      updateDateTime: '2020-01-01T10:10:00-06:00',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '01/01/2020 10:10:00',
     },
   },
 ];
 
-export default () => <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit />;
-
+export default () => (
+  <FlowsheetResultCell 
+    resultDataSet={multipleResultBPValues} 
+    hideUnit
+    isModified
+    hasComment
+  />
+);
 ```

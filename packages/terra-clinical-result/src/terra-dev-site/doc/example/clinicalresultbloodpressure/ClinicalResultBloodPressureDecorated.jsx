@@ -9,8 +9,6 @@ const bloodpressureResultValue = {
       value: '120',
       unit: 'mmHg',
     },
-    isModified: false,
-    hasComment: true,
   },
   diastolic: {
     eventId: '111.2',
@@ -18,9 +16,7 @@ const bloodpressureResultValue = {
       value: '80',
       unit: 'mmHg',
     },
-    isModified: true,
-    hasComment: false,
   },
 };
 
-export default () => <ClinicalResultBloodPressure resultData={bloodpressureResultValue} />;
+export default () => <ClinicalResultBloodPressure resultData={bloodpressureResultValue} isModified hasComment />;

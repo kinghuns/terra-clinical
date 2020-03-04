@@ -15,9 +15,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'HIGH',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
     diastolic: {
       eventId: '1602328271-1.2',
@@ -26,9 +23,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'LOW',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
   },
   {
@@ -40,9 +34,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'HIGH',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
     diastolic: {
       eventId: '1602328271-2.2',
@@ -51,9 +42,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'LOW',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
   },
   {
@@ -64,9 +52,6 @@ const multipleResultBPValues = [
         value: '111',
         unit: 'mmHg',
       },
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
     diastolic: {
       eventId: '1602328271-3.2',
@@ -74,9 +59,6 @@ const multipleResultBPValues = [
         value: '77',
         unit: 'mmHg',
       },
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
   },
 ];
@@ -85,7 +67,7 @@ export default () => (
   <React.Fragment>
     <div className={cx('mock-flowsheet-resultcolumn')}>
       <div className={cx('mock-flowsheet-resultcolumn-cell')}>
-        <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit />
+        <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit isModified hasComment />
       </div>
       <div className={cx(['mock-flowsheet-resultcolumn-cell', 'empty'])} />
     </div>

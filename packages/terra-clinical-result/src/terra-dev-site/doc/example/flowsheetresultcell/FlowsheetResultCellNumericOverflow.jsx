@@ -13,9 +13,6 @@ const multipleResultValues = [
       unit: 'degC',
     },
     type: 'NUMERIC',
-    isModified: true,
-    hasComment: true,
-    effectiveDateTime: '10/10/2020 11:11:11',
   },
   {
     eventId: '1602328282',
@@ -24,9 +21,6 @@ const multipleResultValues = [
       unit: 'degC',
     },
     type: 'NUMERIC',
-    isModified: false,
-    hasComment: false,
-    effectiveDateTime: '10/10/2020 11:11:22',
   },
   {
     eventId: '1602328293',
@@ -35,9 +29,6 @@ const multipleResultValues = [
       unit: 'degC',
     },
     type: 'NUMERIC',
-    isModified: false,
-    hasComment: false,
-    effectiveDateTime: '10/10/2020 11:11:33',
   },
 ];
 
@@ -45,26 +36,26 @@ export default () => (
   <React.Fragment>
     <div className={cx('mock-flowsheet-resultcolumn')}>
       <div className={cx('mock-flowsheet-resultcolumn-cell')}>
-        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit />
+        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit isModified hasComment />
       </div>
       <div className={cx('mock-flowsheet-resultcolumn-cell')}>
-        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit />
+        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit isModified hasComment />
       </div>
     </div>
     <div className={cx(['mock-flowsheet-resultcolumn', 'half-column'])}>
       <div className={cx('mock-flowsheet-resultcolumn-cell')}>
-        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit />
+        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit isModified hasComment />
       </div>
       <div className={cx('mock-flowsheet-resultcolumn-cell')}>
-        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit />
+        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit isModified hasComment />
       </div>
     </div>
     <div className={cx(['mock-flowsheet-resultcolumn', 'triple-column'])}>
       <div className={cx('mock-flowsheet-resultcolumn-cell')}>
-        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit />
+        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit isModified hasComment />
       </div>
       <div className={cx('mock-flowsheet-resultcolumn-cell')}>
-        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit />
+        <FlowsheetResultCell resultDataSet={multipleResultValues} hideUnit isModified hasComment />
       </div>
     </div>
   </React.Fragment>

@@ -8,10 +8,15 @@ const singleResultValue = {
     unit: 'mmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHgmmHg',
   },
   interpretation: 'CRITICAL',
-  isModified: true,
-  hasComment: true,
-  conceptDisplay: 'Temperature Oral',
-  datetimeDisplay: 'Nov 23, 2019 13:31:31',
 };
 
-export default () => <ClinicalResult resultData={singleResultValue} isTruncated />;
+export default () => (
+  <ClinicalResult
+    resultData={singleResultValue}
+    isTruncated
+    isModified
+    hasComment
+    conceptDisplay="Temperature Oral"
+    datetimeDisplay="Nov 23, 2019 13:31:31"
+  />
+);

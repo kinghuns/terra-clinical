@@ -10,7 +10,6 @@ const partialResultValueWithNoSystolic = {
       unit: 'mmHg',
     },
     interpretation: 'CRITICAL',
-    effectiveDateTime: '2015-02-07T13:28:17-05:00',
   },
 };
 
@@ -23,7 +22,6 @@ const partialResultValueWithNoDiastolic = {
       unit: 'mmHg',
     },
     interpretation: 'HIGH',
-    effectiveDateTime: '2015-02-07T13:28:17-05:00',
   },
 };
 

@@ -26,31 +26,28 @@ $ npm install terra-clinical-result
 ## Usage Guide
 The clinical result is constructed by providing structured object with a specific construction that follows a similar pattern to the [HL7 FHIR Observation](https://www.hl7.org/fhir/observation.html) standard.
 ```jsx
-const observationPropShape = PropTypes.shape({
+const propTypes = {
   /**
-   *  Event ID for result
+   * Result Object with the clinical result data.
    */
-  eventId: PropTypes.string,
-  /**
-   *  Value and optional Unit of Measure for the Observation Result
-   */
-  result: PropTypes.shape([
-     /**
-      *  Value for an Observation Result
-      */
-     value: PropTypes.oneOfType([number, string, object]).isRequired,
-     /**
-      *  Unit of Measure representation for an Observation Result
-      */
-     unit: PropTypes.string,
-     /**
-      *  Optional (FHIR) - System that defines coded unit form
-      */
-     system: PropTypes.string,
-     /**
-      *  Optional (FHIR) - Coded form of the unit
-      */
-     code: PropTypes.string,
+  resultData: PropTypes.shape({
+    /**
+     *  Event ID for result
+     */
+    eventId: PropTypes.string,
+    /**
+     *  Value and optional Unit of Measure for the Observation Result
+     */
+    result: PropTypes.shape([
+      /**
+       *  Value for an Observation Result
+       */
+      value: PropTypes.oneOfType([number, string, object]).isRequired,
+      /**
+       *  Unit of Measure representation for an Observation Result
+       */
+      unit: PropTypes.string,
+    ]),
   ]),
   /**
    * Enum for possible Result Interpretation values (also called `Clinical Severity` and `Normalcy`).
@@ -98,25 +95,9 @@ const observationPropShape = PropTypes.shape({
     'unknown'
   ]),
   /**
-   *  Clinical datetime for the Result
+   * Visually hides the unit of measure when presented in a series of side-by-side columns of the same unit.
    */
-  performedDateTime: PropTypes.string,
-  /**
-   *  Last updated datetime for the Result
-   */
-  updateDateTime: PropTypes.string,
-  /**
-   *  If the Result value has been modified from it's original value for the same clinically documented event & datetime.
-   */
-  isModified: PropTypes.bool,
-  /**
-   *  If the Result value has an appended comment.
-   */
-  hasComment: PropTypes.bool,
-  /**
-   *  If the Result value has not been authenticated and committed to patient chart.
-   */
-  isUnverified: PropTypes.bool,
+  hideUnit: PropTypes.bool,
   /**
    *  Display to show the full Result Name/Label Concept, e.g. `'Temperature Oral'`.
    */
@@ -125,6 +106,30 @@ const observationPropShape = PropTypes.shape({
    *  Display to show an appropriate clinically relevant documented datetime.
    */
   datetimeDisplay: PropTypes.string,
+  /**
+   * Whether or not the text should be truncated in display. Restricts clinical result details each to one line.
+   */
+  isTruncated: PropTypes.bool,
+  /**
+   *  If the Result value has an appended comment.
+   */
+  isUnverified: PropTypes.bool,
+  /**
+   *  If the Result value has not been authenticated and committed to patient chart.
+   */
+  isModified: PropTypes.bool,
+  /**
+   *  If the Result value has been modified from it's original value for the same clinically documented event & datetime.
+   */
+  hasComment: PropTypes.bool,
+  /**
+   * Override that shows an Error display. Used when there is a known error or problem when retrieving or assembling the clinical result data.
+   */
+  hasResultError: PropTypes.bool,
+  /**
+   * Override that shows a known "No Data" display. Used when there is known to be no value for a given clinical result concept at a specific datetime.
+   */
+  hasResultNoData: PropTypes.bool,
 });
 ```
 
@@ -142,13 +147,19 @@ const singleResultValue = {
   },
   interpretation: 'CRITICAL',
   type: 'NUMERIC',
-  isModified: true,
-  hasComment: true,
-  isUnverified: true,
-  conceptDisplay: 'Temperature Oral',
-  datetimeDisplay: 'Nov 23, 2019 13:31:31',
 };
 
-export default () => <ClinicalResult resultData={singleResultValue} hideUnit isTruncated />;
+export default () => (
+  <ClinicalResult
+    resultData={singleResultValue}
+    hideUnit
+    isTruncated
+    isUnverified
+    isModified
+    hasComment
+    conceptDisplay="Temperature Oral"
+    datetimeDisplay="Nov 23, 2019 13:31:31"
+  />
+);
 
 ```

@@ -15,9 +15,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'HIGH',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
     diastolic: {
       eventId: '1602328271-1.2',
@@ -26,9 +23,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'LOW',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
   },
   {
@@ -40,9 +34,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'HIGH',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
     diastolic: {
       eventId: '1602328271-2.2',
@@ -51,9 +42,6 @@ const multipleResultBPValues = [
         unit: 'mmHg',
       },
       interpretation: 'LOW',
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
   },
   {
@@ -64,9 +52,6 @@ const multipleResultBPValues = [
         value: '111',
         unit: 'mmHg',
       },
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
     diastolic: {
       eventId: '1602328271-3.2',
@@ -74,9 +59,6 @@ const multipleResultBPValues = [
         value: '77',
         unit: 'mmHg',
       },
-      isModified: true,
-      hasComment: true,
-      resultDateTime: '10/10/2020 11:11',
     },
   },
 ];
@@ -89,14 +71,11 @@ const unverifiedResultValue = [
       unit: 'degC',
     },
     type: 'NUMERIC',
-    isUnverified: true,
-    effectiveDateTime: '10/10/2020 11:11:11',
   },
 ];
 
 export default () => (
   <React.Fragment>
-    {/* --- */}
     <div className={cx('mock-flowsheet-resultcolumn')}>
       <div className={cx(['mock-flowsheet-resultcolumn-cell', 'short'])}>
         none
@@ -111,37 +90,35 @@ export default () => (
         compact + vertically center-aligned
       </div>
     </div>
-    {/* --- */}
     <div className={cx('mock-flowsheet-resultcolumn')}>
       <div className={cx(['mock-flowsheet-resultcolumn-cell', 'short'])}>
-        <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit paddingStyle="none" />
+        <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit isModified hasComment paddingStyle="none" />
       </div>
       <div className={cx('mock-flowsheet-resultcolumn-cell')}>
-        <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit paddingStyle="compact" />
+        <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit isModified hasComment paddingStyle="compact" />
       </div>
       <div className={cx(['mock-flowsheet-resultcolumn-cell', 'medium'])}>
-        <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit paddingStyle="standard" />
+        <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit isModified hasComment paddingStyle="standard" />
       </div>
       <div className={cx(['mock-flowsheet-resultcolumn-cell', 'tall'])}>
         <div className={cx(['vertical-center-align-wrapper'])}>
-          <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit paddingStyle="compact" />
+          <FlowsheetResultCell resultDataSet={multipleResultBPValues} hideUnit isModified hasComment paddingStyle="compact" />
         </div>
       </div>
     </div>
-    {/* --- */}
     <div className={cx('mock-flowsheet-resultcolumn')}>
       <div className={cx(['mock-flowsheet-resultcolumn-cell', 'short'])}>
-        <FlowsheetResultCell resultDataSet={unverifiedResultValue} hideUnit paddingStyle="none" />
+        <FlowsheetResultCell resultDataSet={unverifiedResultValue} hideUnit isUnverified paddingStyle="none" />
       </div>
       <div className={cx('mock-flowsheet-resultcolumn-cell')}>
-        <FlowsheetResultCell resultDataSet={unverifiedResultValue} hideUnit paddingStyle="compact" />
+        <FlowsheetResultCell resultDataSet={unverifiedResultValue} hideUnit isUnverified paddingStyle="compact" />
       </div>
       <div className={cx(['mock-flowsheet-resultcolumn-cell', 'medium'])}>
-        <FlowsheetResultCell resultDataSet={unverifiedResultValue} hideUnit paddingStyle="standard" />
+        <FlowsheetResultCell resultDataSet={unverifiedResultValue} hideUnit isUnverified paddingStyle="standard" />
       </div>
       <div className={cx(['mock-flowsheet-resultcolumn-cell', 'tall'])}>
         <div className={cx(['vertical-center-align-wrapper'])}>
-          <FlowsheetResultCell resultDataSet={unverifiedResultValue} hideUnit paddingStyle="compact" />
+          <FlowsheetResultCell resultDataSet={unverifiedResultValue} hideUnit isUnverified paddingStyle="compact" />
         </div>
       </div>
     </div>

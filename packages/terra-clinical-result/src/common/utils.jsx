@@ -1,9 +1,9 @@
 /**
  * Returns a boolean after checking supplied value is not undefined, null, or empty string.
  * -param       string    value to test
- * -return      boolean   empty|true || not-empty|false
+ * -return      boolean   not-empty|true || empty|false
  */
-const isEmpty = (str) => (!str || str.length === 0);
+const isNotEmpty = (str) => (!(!str || str.length === 0));
 
 /**
  * Returns a boolean after check to see if a clinical result has included a resultData.status value that is equal to 'entered-in-error'
@@ -11,7 +11,7 @@ const isEmpty = (str) => (!str || str.length === 0);
  * -return      boolean   status is in-error|true || not in-error|false
  */
 const checkIsStatusInError = (status) => {
-  const resultStatus = (!isEmpty(status)) ? status.trim().toLowerCase() : undefined;
+  const resultStatus = (isNotEmpty(status)) ? status.trim().toLowerCase() : undefined;
   return (resultStatus === 'entered-in-error');
 };
 
@@ -22,7 +22,7 @@ const checkIsStatusInError = (status) => {
  * -return      boolean   type match|true || no match|false
  */
 const checkResultType = (resultData, matchType) => {
-  const resultType = (!isEmpty(resultData.type)) ? resultData.type.trim().toUpperCase() : undefined;
+  const resultType = (isNotEmpty(resultData.type)) ? resultData.type.trim().toUpperCase() : undefined;
   return (resultType === matchType);
 };
 
@@ -37,7 +37,7 @@ const checkResultType = (resultData, matchType) => {
 const ConditionalWrapper = ({ condition, wrapper, children }) => (condition ? wrapper(children) : children);
 
 const ClinicalResultUtils = {
-  isEmpty,
+  isNotEmpty,
   checkIsStatusInError,
   checkResultType,
   ConditionalWrapper,
@@ -45,7 +45,7 @@ const ClinicalResultUtils = {
 
 export default ClinicalResultUtils;
 export {
-  isEmpty,
+  isNotEmpty,
   checkIsStatusInError,
   checkResultType,
   ConditionalWrapper,

@@ -11,9 +11,6 @@ const bloodpressureResultValue = {
     },
     status: 'entered-in-error',
     interpretation: 'CRITICAL',
-    hasComment: true,
-    conceptDisplay: 'Blood Pressure (Supine)',
-    datetimeDisplay: 'Nov 23, 2019 13:31:31',
   },
   diastolic: {
     eventId: '111.2',
@@ -23,10 +20,14 @@ const bloodpressureResultValue = {
     },
     status: 'entered-in-error',
     interpretation: 'LOW',
-    hasComment: false,
-    conceptDisplay: 'Blood Pressure (Supine)',
-    datetimeDisplay: 'Nov 23, 2019 13:31:31',
   },
 };
 
-export default () => <ClinicalResultBloodPressure resultData={bloodpressureResultValue} />;
+export default () => (
+  <ClinicalResultBloodPressure
+    resultData={bloodpressureResultValue}
+    hasComment
+    conceptDisplay="Blood Pressure (Supine)"
+    datetimeDisplay="Nov 23, 2019 13:31:31"
+  />
+);

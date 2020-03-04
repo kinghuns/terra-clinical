@@ -21,7 +21,7 @@ const propTypes = {
    */
   paddingStyle: PropTypes.oneOf(['none', 'standard', 'compact']),
   /**
-   * Adds additional icon at beginning of row before the ResultName, indicating additinonal information about results or cells.
+   * Adds additional icon at beginning of row before the ResultName, indicating special information about results or cells.
    * One of `'none'` or `'calculated'`.
    */
   typeIndicator: PropTypes.oneOf(['none', 'calculated']),

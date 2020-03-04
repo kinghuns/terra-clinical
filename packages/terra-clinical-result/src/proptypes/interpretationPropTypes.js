@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 
 /**
- *  Enum for possible Result Interpretation values (also called `Clinical Severity` and `Normalcy`)
+ *  Enum for possible Result Interpretations.
+ *  (also called `Clinical Severity` or `Normalcy` based on established reference ranges)
  */
 const interpretationPropType = PropTypes.oneOf([
   'CRITICAL',

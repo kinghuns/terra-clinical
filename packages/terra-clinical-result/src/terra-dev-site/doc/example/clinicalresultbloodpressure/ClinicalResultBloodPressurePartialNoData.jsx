@@ -14,7 +14,6 @@ const partialResultValueWithNoDataPropSystolic = {
       unit: 'mmHg',
     },
     interpretation: 'CRITICAL',
-    effectiveDateTime: '2015-02-07T13:28:17-05:00',
   },
 };
 
@@ -27,7 +26,6 @@ const partialResultValueWithNoDataPropDiastolic = {
       unit: 'mmHg',
     },
     interpretation: 'HIGH',
-    effectiveDateTime: '2015-02-07T13:28:17-05:00',
   },
   diastolic: {
     eventId: '222.2',
@@ -50,7 +48,6 @@ const partialResultValueWithNullValue = {
       unit: 'mmHg',
     },
     interpretation: 'CRITICAL',
-    effectiveDateTime: '2015-02-07T13:28:17-05:00',
   },
 };
 
